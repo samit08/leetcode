@@ -1,34 +1,71 @@
 class Solution {
 public:
+    string reverse(string temp){
+        int i=0;
+        int j=temp.length()-1;
+        while(i<j){
+            swap(temp[i],temp[j]);
+            i++;
+            j--;
+        }
+        return temp;
+    }
     string reverseWords(string s) {
-        string str="";
-        string temp="";
-        vector<string> ans;
-
-        for(int i=0;i<s.length();i++)
-        {
-            if(s[i]==' ')
-            {
-                temp="";
-            }
+        string temp = "";
+         string temp1 = "";
+        int n= s.length();
         
-            while(s[i]!=' ' && i<s.length())
-            {
-                temp+=s[i];
-                i++;
+         for(int i=n-1;i>=0;i--)
+         {
+              
+             if(s[i] != ' ')
+             { temp+=s[i];
+             }
+             if(i==0 && s[i]!= ' '){
+                 string c= reverse(temp);
+                temp1 = temp1+c;
+                temp="";
+             }
+            //  else
+            //  {string c= reverse(temp);
+            //    temp1 = temp1+c+" ";
+            //    temp="";
+               
+            // }
+            else if(s[i]==' '){
+                string c= reverse(temp);
+               temp1 = temp1+c+" ";
+               temp="";
+               while(i>0 && s[i-1]==' '){
+                   i--;
+               }
+               
             }
-            if(temp!="")
-                ans.push_back(temp);
-            temp="";  
-        }
+            
 
-        for(int i=ans.size()-1;i>=0;i--)
-        {
-            str+=ans[i];
-            if(i!=0)
-                str+=' ';
-        }
 
-        return str;
+         }
+         int i=0;
+         while(temp1[i]==' '){
+             i++;
+         }
+         int j=temp1.length()-1;
+         while(temp1[j]==' '){
+             j--;
+         }
+         
+         int a = temp1.length()-1-j;
+         temp1.erase(j+1, a);
+         temp1.erase(0,i);
+         
+           return temp1;
+
+
+
+
+
+      
+
+        
     }
 };
