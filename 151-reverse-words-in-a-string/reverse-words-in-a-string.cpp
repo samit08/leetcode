@@ -26,12 +26,6 @@ public:
                 temp1 = temp1+c;
                 temp="";
              }
-            //  else
-            //  {string c= reverse(temp);
-            //    temp1 = temp1+c+" ";
-            //    temp="";
-               
-            // }
             else if(s[i]==' '){
                 string c= reverse(temp);
                temp1 = temp1+c+" ";
