@@ -29,12 +29,19 @@ int main()
 
 //User function Template for C++
 
-void rotate(int v[], int n)
+void rotate(int arr[], int n)
 {
-    int prev=v[n-1], cur;
-    for(int i=0; i<n; i++){
-        cur=v[i];
-        v[i]=prev;
-        prev=cur;
+    
+    int temp[n];
+    for(int i=0;i<n;i++)
+    { temp[(i+1)%n]=arr[i];
+        
     }
+    
+
+for(int i=0;i<n;i++)
+{
+    arr[i]=temp[i];
+}
+
 }
