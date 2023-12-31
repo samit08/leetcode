@@ -12,7 +12,7 @@ public:
             // i j
             //  ss 
             if(v[i]==v[j])
-             { v.erase(v.begin()+j,v.begin()+j+1);
+             { v.erase(v.begin()+j);
               n--;
             //  for(int ss=j;ss<n-1;ss++)
             // //  {
