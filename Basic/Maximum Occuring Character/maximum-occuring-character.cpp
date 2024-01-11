@@ -10,31 +10,28 @@ class Solution
 {
     public:
     //Function to find the maximum occurring character in a string.
-    char getMaxOccuringChar(string s)
+    char getMaxOccuringChar(string str)
     {
-        
-        
-        int arr[26] ={0};
-        int temp=0;
-        for(int i=0;i<s.length();i++)
+        map<char ,int> mpp;
+        for(int i=0;i<str.length();i++)
         {
-            char ch= s[i];
-             temp = ch-'a';
-            arr[temp]++;
+            mpp[str[i]]++;
         }
-        
-        int maxi=-1,ans=0;
-        for(int i=0;i<26;i++)
+        char ans;
+     int maxi =INT_MIN;
+        for(auto pr: mpp)
         {
-            if(maxi<arr[i])
-            {
-                ans=i;
-                maxi=arr[i];
-            }
+            if(pr.second>maxi)
+             {maxi=pr.second;
+             ans=pr.first;
+                 
+             }
+
         }
-        return ans +'a';
+        return ans;
+        
+        
     }
-    
 
 };
 
