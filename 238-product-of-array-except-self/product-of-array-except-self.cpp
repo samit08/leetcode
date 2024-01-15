@@ -1,28 +1,25 @@
 class Solution {
 public:
-    vector<int> productExceptSelf(vector<int>& nums) {
-         vector<int> ans;
-         int multi =1;
-         int flag=0;
-         for(int i=0;i<nums.size();i++)
-         {   if(nums[i]==0) {flag++;continue; }
-             multi =multi*nums[i];
-         } 
-         int k;
-         for(int i=0;i<nums.size();i++)
-         {  if(flag >=1){
-              if(nums[i]!=0)
-              {ans.push_back(0);}
-              else if(flag==nums.size()) ans.push_back(0);
+    vector<int> productExceptSelf(vector<int>& v) {
+        int n =v.size();
+        int rp=1;
+        int l=n-1;
+        vector<int> ans;
+        int multi =1;
+        vector<int> right(n,0);
+        for(int i=n-1;i>=0;i--)
+        {  rp = rp*v[i];
+         right[l]=rp;
+         l--;
 
-              else if(flag>1 && flag<nums.size())ans.push_back(0);
-              else  ans.push_back(multi);
-              }
-             else
-             {int k = multi/nums[i];
-             ans.push_back(k);}
-         }
+        }
+         ans.push_back(right[1]);
+        for(int i=1;i<n-1;i++)
+        {    
+             multi= multi*v[i-1];
+            ans.push_back(multi*right[i+1]);
+        }
+         ans.push_back(multi*v[n-2]);
         return ans;
-
     }
 };
