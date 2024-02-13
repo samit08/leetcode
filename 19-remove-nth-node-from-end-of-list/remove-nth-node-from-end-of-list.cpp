@@ -25,11 +25,11 @@ public:
   }
  int k=cnt-n;
  temp =head;
- if (k == 0) {
-            ListNode* newHead = head->next;
-            delete head;
-            return newHead;
- }
+//  if (k == 0) {
+//             ListNode* newHead = head->next;
+//             delete head;
+//             return newHead;
+//  }
  while(k>1){
   temp=temp->next;
    k--;   
